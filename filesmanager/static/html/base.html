@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="The web page to solve your problem with live supporter. 
+                                            You can also make money for the problem you solve.
+                                            The service charge only cost 5% per successful problem."/>
+        <meta name="keywords" content="Problems, CodeSlover, JavaScript"/>
+        <meta name="author" content="Tran Phuong Nam"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            {% block title %}
+                CodeSlover
+            {% endblock %}
+        </title>
+        {% load static %}
+        <!-- add icon link -->
+        <link rel="icon" href="{% static 'media/images/icons/logo.png' %}"/>
+        {% block head %}
+
+        {% endblock head %}
+        
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock body %}
+    </body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect to Login page</title>
+    <meta http-equiv="refresh" content="5; url ={% url 'filesmanager:signin' %}" />
+</head>
+<body>
+    <h1>You are not logged in! Redirecting to Sign in page in 5s...</h1>
+    <a href="{% url 'filesmanager:signin' %}">Sign in page</a>
+</body>
+</html>

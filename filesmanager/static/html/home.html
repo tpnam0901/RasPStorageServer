@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+{% endblock head %}
+
+{% block body %}
+    <!-- first container contain webpage icon, sign up, sign in, title of the page and some extra info -->
+    <div class="container-fluid first-container">
+        <!-- Header on top of the page which contain the icon, sign up, sign in-->
+        <div class="header-fc">
+            <span class="logo-click">
+                <a href="{% url 'filesmanager:home' %}" >
+                    <img src="{% static 'media/images/icons/logo.png' %}" alt="logo">
+                </a>
+            </span>
+            &nbsp;
+            <span class="text-link">
+                <a href="#" class="href-link">
+                    Home
+                </a>
+            </span>
+            &nbsp;
+            <span class="text-link">
+                <a href="#" class="href-link">
+                    Product
+                </a>
+            </span>
+            &nbsp;
+            <span class="text-link">
+                <a href="#" class="href-link">
+                    Pricing
+                </a>
+            </span>
+            &nbsp;
+            <span class="text-link">
+                <a href="#" class="href-link">
+                    About us
+                </a>
+            </span>
+
+            <span class="btn-sign-in">
+                <button>
+                    <a href="{% url 'filesmanager:signin' %}" class="href-link">
+                        Sign in
+                    </a>
+                </button>
+            </span>
+        </div>
+        <!-- The product section contain sologan and some description-->
+        <div class="title-fc">
+            <h1>Your knowledge <br>Is valuable</h1>
+            <p> Code Slover is a website to solve your problem with live supporter.
+                You can also make money for the problem you solve.
+                The service charge only cost 5% per successful problem.</p>
+            <form class="sign-up-form">
+                <input class="email" type="text" id="email" name="email" placeholder="Email address">
+                <input class="submit" type="submit" value="Sign up for Code Slover">
+                <div class="break"></div>
+                <input class="submit2" type="submit" value="Sign up for Code Slover">
+            </form>
+        </div>
+        <div class="extra-info-fc">
+            <span>
+                <span class="extra-info-fc-user">
+                    <i class="extra-info-fc-text-num">1+ million</i>
+                </span>
+                <span class="extra-info-fc-user-active">
+                    <i class="extra-info-fc-text-num">258569</i>
+                </span>
+                <span class="extra-info-fc-problems">
+                    <i class="extra-info-fc-text-num">4+ million</i>
+                </span>
+            </span>
+            <br>
+            <span>
+                <span class="extra-info-fc-user">
+                    <i class="extra-info-fc-text">Users</i>
+                </span>
+                <span class="extra-info-fc-user-active">
+                    <i class="extra-info-fc-text">Users active</i>
+                </span>
+                <span class="extra-info-fc-problems">
+                    <i class="extra-info-fc-text">Problems solve</i>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <!-- second container contain information about the using of product, some example -->
+{% endblock body %}

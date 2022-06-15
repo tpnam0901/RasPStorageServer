@@ -1,0 +1,307 @@
+/*--------------------documents---------------------*/
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    background: rgb(255, 255, 255);
+}
+
+/*------------------------------------------------------fist container------------------------------------------------------*/
+/* container config */
+.first-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    /* no margin */
+    padding: 0px;
+    background-image: url("../media/images/bg.jpg");
+    /* background image */
+    background-size: cover;
+    /* cover the background image */
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    /* set no repeat for background */
+    position: relative;
+    /* set position relative which is positioned relative to its normal position */
+    object-fit: contain;
+    /* fit the image to the container */
+}
+
+/*-----------------------------------header object-------------------------------------------*/
+.header-fc {
+    width: 90%;
+    height: 100px;
+    position: relative;
+    top: 20px;
+    left: 10%;
+    /* set top position */
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/* logo image with href to home page */
+.header-fc>.logo-click {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.logo-click>a img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    /* fit logo image to container */
+}
+
+/* set a custom font for text link */
+.header-fc>.text-link {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    bottom: 20px;
+    /* move object to bottom 10px */
+}
+
+.btn-sign-in {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 4px;
+    /* move object to bottom 10px */
+    left: 68%;
+    margin-left: 10px
+}
+.btn-sign-in > button{
+    width: 200px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    background-color: transparent; /* set background color to transparent */
+    background-repeat: no-repeat; /* set no repeat for background */
+    border: none; /* remove button border */
+    cursor: pointer;
+    overflow: hidden;
+    outline: none; /* To get rid of the outline when clicking on the button */
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/* Add border for the sign button */
+.btn-sign-in> button> a{
+    width: 100px;
+    height: 100px;
+    border:3px solid white;
+    border-radius: 15px; /* create a round border */
+    padding: 10px; /* make the border bigger */
+}
+/* change the color of the sign button */
+.btn-sign-in> button> a:hover {
+    text-decoration: none;
+    border:3px solid rgb(123, 123, 123);
+    border-radius: 15px;
+    padding: 10px; 
+    color: rgb(123, 123, 123);
+    /* set text color when the mouse is hover */
+}
+
+/* set a custom hyperlink for white and gray when mouse is hover */
+.href-link {
+    color: white;
+    /* set text color */
+}
+
+.href-link:link {
+    text-decoration: none;
+    /* set no text decoration */
+}
+
+.href-link:hover {
+    text-decoration: none;
+    color: rgb(123, 123, 123);
+    /* set text color when the mouse is hover */
+}
+
+/* The product section contain sologan and some description */
+.title-fc{
+    width: auto;
+    height: 100px;
+    position: absolute;
+    top: 20%;
+    left: 30vw;
+    /* set top position */
+    animation: fadeInAnimationDelayHalf ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.title-fc > h1{
+    font-family: 'Roboto', sans-serif; /* set a custom font */
+    font-weight: 900; /* set font weight to bold */
+    color: white;
+    font-size: 50px;
+    text-align: left; /* set text align to left */
+    bottom: 0px;
+    
+}
+.title-fc > p{
+    margin-top: -30px;
+    width:40%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    text-align: justify; /* set text auto align with the width */
+}
+
+/* sign up form */
+.title-fc > form{
+    margin-top: -10px;
+    width:auto;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    text-align: justify; /* set text auto align with the width */
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.submit{
+    width: auto;
+    height: 50px;
+    border:3px solid #2EA44F;
+    background-color: #2EA44F;
+    border-radius: 15px; /* create a round border */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    padding-left: 10px;
+    cursor: pointer; /* set cursor to pointer */
+}
+.submit2{
+    width: auto;
+    height: 50px;
+    border:3px solid #2EA44F;
+    background-color: #2EA44F;
+    border-radius: 15px; /* create a round border */
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    padding-left: 10px;
+    cursor: pointer; /* set cursor to pointer */
+}
+
+.email{
+    width: auto;
+    max-width: 300px;
+    height: 40px;
+    border:3px solid white;
+    border-radius: 15px; /* create a round border */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    padding-left: 10px;
+}
+
+/* extra information for the first container */
+.extra-info-fc{
+    width: auto;
+    height: auto;
+    position: relative;
+    top: 75%;
+    text-align: left;
+    /* set top position */
+    animation: fadeInAnimationDelayHalf ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.extra-info-fc-text{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 20;
+    color: rgb(163, 162, 162);
+    text-align: left; /* set text align to left */
+    bottom: 0px;
+}
+.extra-info-fc-text-num{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-align: left; /* set text align to left */
+    bottom: 0px;
+}
+.extra-info-fc-user{
+    display: inline-block;
+    width: 100px;
+    padding-left: 15%;
+}
+.extra-info-fc-user-active{
+    display: inline-block;
+    width: 100px;
+    padding-left: 3%;
+}
+.extra-info-fc-problems{
+    display: inline-block;
+    width: 110px;
+    padding-left: 3%;
+}
+
+/*------------------second container----------------*/
+
+
+/* animation function */
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+@keyframes fadeInAnimationDelayHalf {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+@media screen and (max-width: 720px) {
+    .text-link {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .btn-sign-in {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .submit {
+        display: none !important;
+    }
+    .title-fc > p{
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .submit2 {
+        display: none !important;
+    }
+}

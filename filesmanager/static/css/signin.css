@@ -1,0 +1,140 @@
+/*--------------------documents---------------------*/
+html, body {
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    min-width: 600px;
+    margin: 0;
+    padding: 0px;
+    background: rgb(255, 255, 255);
+}
+
+/*------------------------------------------------------fist container------------------------------------------------------*/
+/* container config */
+.first-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    /* no margin */
+    padding: 0px;
+    background-image: url("../media/images/bg.jpg");
+    /* background image */
+    background-size: cover;
+    /* cover the background image */
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    /* set no repeat for background */
+    position: relative;
+    /* set position relative which is positioned relative to its normal position */
+    object-fit: contain;
+    /* fit the image to the container */
+    display: flex;
+    justify-content: center;
+    /* center the object in the div */
+}
+
+/* config the white center rectangle */
+.second-container {
+    width: 500px;
+    height: 88%;
+    top: 3%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+/* config the title of the signin page*/
+.second-container>h1 {
+    width: 100%;
+    top: 3%;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+
+}
+
+/* config the user input form */
+.signin-form {
+    width: 85%;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    text-align: left;
+
+}
+
+/* config the label for username and password */
+.signin-form>label {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+
+}
+
+/* config the input for username and password */
+.signin-form>input {
+    width: 65%;
+    display: inline-block;
+    margin-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.signin-form>input:focus {
+    outline: none !important;
+    border-bottom: 3px solid rgb(0, 0, 0);
+}
+
+.signin-form>i {
+    font-size: 20px;
+}
+/* config for the notification of invalid username, password */
+.signin-noti{
+    width: 80%;
+}
+
+/* config the signin button */
+.signin-form>button {
+    width: 80%;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(81, 81, 81);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.signin-form>button:hover {
+    width: 80%;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(211, 211, 211);
+    border-radius: 10px;
+
+}

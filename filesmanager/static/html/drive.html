@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/drive.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock head %}
+
+{% block body %}
+    <!-- first container contain webpage icon, sign up, sign in, title of the page and some extra info -->
+    <div class="container-fluid container">
+        <div class="drive">
+            <a href="{% url 'filesmanager:browser' %}">
+                <i class="fa fa-archive"></i>Drive
+            </a>
+        </div>
+        <div class="public-link">
+            <a href="#">
+                <i class="fa fa-creative-commons"></i>Public
+            </a>
+        </div>
+        <div class="sign-out">
+            <div>
+                <a href="{% url 'filesmanager:signout' %}">
+                    <i class="fa fa-sign-out"></i>Sign out
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- second container contain information about the using of product, some example -->
+{% endblock body %}

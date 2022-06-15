@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/browser.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/browser.js' %}"></script>
+{% endblock head %}
+
+{% block body %}
+<!-- first container contain webpage icon, sign up, sign in, title of the page and some extra info -->
+<div class="container-fluid container">
+    <div class="sign-out">
+        <a href="{% url 'filesmanager:signout' %}">
+            <i class="fa fa-sign-out"></i>Sign out
+        </a>
+    </div>
+    <div class="btn-container">
+        <div class="btn">
+            <button>
+                <i class="fa fa-plus"></i> New folder
+            </button>
+        </div>
+        <div class="btn">
+            <button id="upload-btn">
+                <form id="upload-form" action="{% url 'filesmanager:upload'%}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <i class="fa fa-upload"></i> Upload file
+                    <input type="text" name="base_dir" value={{ base_dir }} style="visibility:hidden;" />
+                    <input type="file" name="file_upload" id="upload-input" style="visibility:hidden;" />
+                </form>
+            </button>
+        </div>
+        <div class="btn">
+            <button>
+                <i class="fa fa-trash"></i> Delete
+            </button>
+        </div>
+        <div class="btn">
+            <button>
+                <i class="fa fa-copy"></i> Copy
+            </button>
+        </div>
+        <div class="btn">
+            <button>
+                <i class="fa fa-cut"></i> Move
+            </button>
+        </div>
+    </div>
+    <div class="view-container">
+        <div class="path">
+            <form action="{% url 'filesmanager:godir' %}" method="post">
+                {% csrf_token %}
+                Directory:
+                <input name="directory" type="text" value={{ base_dir }}/>
+                <input type="submit" hidden />
+                <a href="{% url 'filesmanager:browser' parent_dir %}"><button type="button">Back</button></a>
+            </form>
+        </div>
+        <div class="files-container">
+            <table id="table-container">
+                <tr>
+                    <th class="table-filename">Filename</th>
+                    <th class="table-filesize">Size</th>
+                    <th class="table-status"> Status</th>
+                    <th class="table-function"></th>
+                </tr>
+                {% for key, value in list_files.items %}
+                <tr>
+                    <td class="table-filename">
+                        <a href="{% url 'filesmanager:browser' value.1%}">{{ key }}</a>
+                    </td>
+                    <td class="table-filesize">{{ value.2 }}</td>
+                    <td class="table-status">{{ value.3 }}</td>
+                    <td class="table-function">
+                        <div class="table-btn">
+                            <a href="#"><button id="table-btn-delete">Delete</button></a>
+                            <a href="#"><button id="table-btn-rename">Rename</button></a>
+                            <a href="#"><button if="table-btn-move">Move</button></a>
+                            <a href="#"><button id="table-btn-copy">Copy</button></a>
+                            <a href="{% url 'filesmanager:download' value.1%}" class="download-url"><button
+                                    id="table-btn-copy">Download</button></a>
+                            <a href="{% url 'filesmanager:topublic' value.1%}"><button id="table-btn-public">To
+                                    public</button></a>
+                            <a href="{% url 'filesmanager:toprivate' value.1%}"><button id="table-btn-private">To
+                                    private</button></a>
+                            <button class="table-btn-show-link">Show link</button>
+                        </div>
+                    </td>
+                </tr>
+                
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modal-content-url">Some text in the Modal..</p>
+    <button id="modal-content-url-copy">Copy</button>
+  </div>
+
+</div>
+
+
+{% endblock body %}

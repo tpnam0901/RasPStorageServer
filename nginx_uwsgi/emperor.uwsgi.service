@@ -1,9 +1,0 @@
-[Unit]
-Description=uwsgi emperor for server domains website
-After=network.target
-[Service]
-User=user
-Restart=always
-ExecStart=/home/user/DriverServer/env/bin/uwsgi --emperor /home/user/DriverServer/env/vassals --uid www-data --gid www-data
-[Install]
-WantedBy=multi-user.target

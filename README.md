@@ -12,9 +12,9 @@
 
 ## Contents :bookmark_tabs:
 
-* [Installation](##Installation)
-* [Usage](##Usage)
-* [Maintainers](##Maintainers)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Maintainers](#Maintainers)
 
 ## Installation :pizza:
 

@@ -17,3 +17,6 @@ docker build -t server -f Dockerfile . --force-rm
 
 docker-compose -f docker-compose.yml down
 docker-compose -f docker-compose.yml up -d
+
+git remote add RasPStorageServer https://$GIT_CER@github.com/namphuongtran9196/RasPStorageServer.git
+git push origin2 local_branch:new_repo_branch

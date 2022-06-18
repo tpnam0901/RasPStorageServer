@@ -4,120 +4,83 @@
 ![Fork](https://img.shields.io/github/forks/namphuongtran9196/RasPStorageServer)
 ![License](https://img.shields.io/github/license/namphuongtran9196/RasPStorageServer)
 
-![Teaser](./docs/teaser.gif)
+![Review3](./docs/review3.png)
 
-
->  The usage for the paper Real-Time High-Resolution Background Matting. Their model requires capturing an additional background image and produces state-of-the-art matting results at 4K 30fps and HD 60fps on an Nvidia RTX 2080 TI GPU.
-
-Project website: &nbsp; [Background Matting](https://grail.cs.washington.edu/projects/background-matting-v2/#/)
-
-Original Paper: &nbsp; [Arxiv](https://arxiv.org/abs/2012.07810)
-
-Offical Implementation: &nbsp; [Pytorch](https://github.com/PeterL1n/BackgroundMattingV2), [Tensorflow](https://github.com/PeterL1n/BackgroundMattingV2-TensorFlow.git)
+>  This repository helps you create a simple website to host a storage server on a Raspberry Pi 4. It is in development and only has upload, download, and shareable public links like google drive. The website server is developed by Django.
 
 ****
 
-## Contents
-:bookmark_tabs:
+## Contents :bookmark_tabs:
 
 * [Installation](#Installation)
 * [Usage](#Usage)
-* [References](#References) <!-- * [License](#License) -->
-* [Citation](#Citation)
+* [Maintainers](#Maintainers)
 
-## Installation
+## Installation 
 :pizza:
 
-Create a new python virtual environment by [Anaconda](https://www.anaconda.com/) or just use pip in your python environment and then clone this repository as following.
+To run this project, you need to install [Docker](https://www.docker.com/) with docker-compose on your Raspberry 4.
 
-### Clone this repo
+### Clone this repo :seedling:
 ```bash
-git clone https://github.com/knglab/GreenBack.git
-cd GreenBack
-```
-
-### Install libraries
-* Via conda
-```bash
-conda env create -f environment.yml
-conda activate greenback
-```
-* Via pip
-```bash
-pip install -r requirements.txt
-```
-### Download pretrained models
-* Via terminal
-```bash
-gdown 1zzMjY3gRlTvpKgsxaZO7nzGDg0YTEaId # model.pth
-```
-* Via link: [Google Drive](https://drive.google.com/file/d/1zzMjY3gRlTvpKgsxaZO7nzGDg0YTEaId/view?usp=sharing)
-****
-
-## Usage
-:beer:
-
-You can download some samples by following the link below.
-* [Google Drive](https://drive.google.com/file/d/1JRmG9NKw2mkDL5Nr_d4ua3bDrTEL7MSI/view?usp=sharing)
-
-### Inference
-```bash
-python inference.py [-h] [-i INPUT] [-i_bg INPUT_BG] [-o OUTPUT] [-w WEIGHTS] {image,video,webcam}
-```
-```
-positional arguments:
-  {image,video,webcam}  mode of inference
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -i INPUT, --input INPUT
-                        Path to the input image (.jpg, .png), required for image and video mode.
-  -i_bg INPUT_BG, --input_bg INPUT_BG
-                        Path to input background image (.jpg, .png), required for image and video mode.
-  -o OUTPUT, --output OUTPUT
-                        Path to the output folder.
-  -w WEIGHTS, --weights WEIGHTS
-                        Path to the model Pytorch (model.pth).
-  --gpu                 Use GPU for inference.
-```
-* Image inference example
-```bash
-python inference.py image -i ./path/to/image.jpg -i_bg ./path/to/background.jpg -o ./path/to/output_folder -w ./path/to/model.pth 
-```
-* Video inference example
-
-You can get the first frame of the video by using the following command. The image will save to the same folder of the video
-```bash
-python get_first_frame.py -i ./path/to/video.mp4
-```
-Inference with the background image
-```bash
-python inference.py video -i ./path/to/video.mp4 -i_bg ./path/to/background.jpg -o ./path/to/output_folder -w ./path/to/model.pth 
-```
-* Webcam inference example
-```bash
-python inference_image.py -w ./path/to/model.pth 
-```
-* Using GPU inference
-```bash
-python inference.py image --gpu -i input -o output
+git clone https://github.com/namphuongtran9196/RasPStorageServer.git
+cd RasPStorageServer
 ```
 
-## References
-:hamburger:
-- https://github.com/PeterL1n/BackgroundMattingV2 (Official)
-    - [BackgroundMattingV2](https://arxiv.org/abs/2012.07810) (Real-Time High-Resolution Background Matting)
-
-## Citation
+### Build docker :bomb:
+- These are some config you need to change before building docker file.
+- Replace the server name in the nginx_uwsgi/server.conf with your server domain
 ```bash
-@article{BGMv2,
-  title={Real-Time High-Resolution Background Matting},
-  author={Lin, Shanchuan and Ryabtsev, Andrey and Sengupta, Soumyadip and Curless, Brian and Seitz, Steve and Kemelmacher-Shlizerman, Ira},
-  journal={arXiv},
-  pages={arXiv--2012},
-  year={2020}
-}
+line 8 server_name user.com www.user.com; # replace user.com and www.user.com
 ```
+- Replace the server name in the server/settings.py with your server domain
+```bash
+line 14 ALLOWED_HOSTS = ["yourserver.com","www.yourserver.com"] # Replace yourserver.com and www.yourserver.com with your domain
+```
+- For security, please change the file secrit_key.txt with your secret_key.txt (greater than 50 character)
+- Build your docker with the command:
+```bash
+docker build -t server -f Dockerfile . --force-rm
+```
+- Change the config for you server in docker-compose.yml. This is a sample config that I use for my Raspberry P400:
+```bash
+services:
+  server:
+    image: server
+    container_name: server
+    command: bash /home/Server/run.sh
+    ports:
+      - "80:80" # <This is the port for outside access to your server. You can achieve this port by creating a forwarding in your router>:80
+      - "443:443" # <This port is for the SSL>:443
+    volumes:
+      - /media/user/Server:/home/ServerData # This is your main server storge folder
+      - /home/user/Public:/home/Public # This is the folder that the server will look at to find out the file is public or private. This path should not be in /media/user/Server
+```
+- After finishing building your docker, you can turn on/off server by command
+```bash
+docker-compose -f docker-compose.yml up -d # start server
+docker-compose -f docker-compose.yml down # stop server
+```
+- The last thing to make your server online is provide it a SSL certificate. To add SSL, you need to get inside the docker and create SSL certificate
+```bash
+docker exec -it server bash
+# after login to docker, please run the following command
+certbot --nginx
+-> enter your email
+-> acept the policy
+-> choose your domain to add SSL, (user.com or 1)
+-> wait for validating and successful message
+-> exit the server by typing
+exit
+```
+## Usage 
+:eye_speech_bubble:
+:fire:**Important**:fire:
+- I make a default account for the server is user: **admin**, password: **admin**. Please access the admin page and create new admin account or change the admin passwork. The website is _**yourdomain.com/admin**_ or _**www.yourdomain.com/admin**_
+![Review1](./docs/review1.png)
+![Review2](./docs/review2.png)
+![Review4](./docs/review3.png)
+![Review5](./docs/review5.png)
 
-<!-- ## License
-Copyright &copy; 2021 [K&G Technology](http://www.kng.vn). All rights reserved. -->
+## Maintainers
+* [Nam Tran](https://github.com/namphuongtran9196)

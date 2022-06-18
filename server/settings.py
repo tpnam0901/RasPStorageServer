@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
 
-ALLOWED_HOSTS = ["yourserver.com","www.yourserver.com"]
+ALLOWED_HOSTS = ["yourserver.com","www.yourserver.com"] # Replace yourserver.com and www.yourserver.com with your domain
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

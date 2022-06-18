@@ -16,7 +16,8 @@
 * [Usage](#Usage)
 * [Maintainers](#Maintainers)
 
-## Installation :pizza:
+## Installation 
+:pizza:
 
 To run this project, you need to install [Docker](https://www.docker.com/) with docker-compose on your Raspberry 4.
 
@@ -72,7 +73,8 @@ certbot --nginx
 -> exit the server by typing
 exit
 ```
-## Usage :eye_speech_bubble:
+## Usage 
+:eye_speech_bubble:
 :fire:**Important**:fire:
 - I make a default account for the server is user: **admin**, password: **admin**. Please access the admin page and create new admin account or change the admin passwork. The website is _**yourdomain.com/admin**_ or _**www.yourdomain.com/admin**_
 ![Review1](./docs/review1.png)

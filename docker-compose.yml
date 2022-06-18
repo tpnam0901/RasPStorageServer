@@ -1,0 +1,11 @@
+services:
+  server:
+    image: server
+    container_name: server
+    command: bash /home/Server/run.sh
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - <PATH TO YOUR SERVER DATA HERE>:/home/ServerData
+      - <PATH TO PUBLIC FILE HERE>:/home/Public

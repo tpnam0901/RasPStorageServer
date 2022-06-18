@@ -10,24 +10,23 @@
 
 ****
 
-## Contents
-:bookmark_tabs:
+## Contents :bookmark_tabs:
 
-* [Installation](#Installation)
-* [Usage](#Usage)
+* [Installation](##Installation)
+* [Usage](##Usage)
+* [Maintainers](##Maintainers)
 
-## Installation
-:pizza:
+## Installation :pizza:
 
 To run this project, you need to install [Docker](https://www.docker.com/) with docker-compose on your Raspberry 4.
 
-### Clone this repo
+### Clone this repo :seedling:
 ```bash
 git clone https://github.com/namphuongtran9196/RasPStorageServer.git
 cd RasPStorageServer
 ```
 
-### Build docker
+### Build docker :bomb:
 - These are some config you need to change before building docker file.
 - Replace the server name in the nginx_uwsgi/server.conf with your server domain
 ```bash
@@ -73,10 +72,13 @@ certbot --nginx
 -> exit the server by typing
 exit
 ```
-## Usage
+## Usage :eye_speech_bubble:
 :fire:**Important**:fire:
 - I make a default account for the server is user: **admin**, password: **admin**. Please access the admin page and create new admin account or change the admin passwork. The website is _**yourdomain.com/admin**_ or _**www.yourdomain.com/admin**_
 ![Review1](./docs/review1.png)
 ![Review2](./docs/review2.png)
 ![Review4](./docs/review3.png)
 ![Review5](./docs/review5.png)
+
+## Maintainers
+* [Nam Tran](https://github.com/namphuongtran9196)
